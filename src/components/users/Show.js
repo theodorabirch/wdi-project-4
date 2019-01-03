@@ -10,6 +10,8 @@ import CalsIn from './CalsIn';
 import CalsOut from './CalsOut';
 // import DailyProgress from './DailyProgress';
 
+const today = new Date();
+
 export default class UserShow extends React.Component {
   constructor(props) {
     super(props);
@@ -24,6 +26,11 @@ export default class UserShow extends React.Component {
       .then(res => {
         (res.data.token);
         this.setState({ user: res.data }, console.log('here'));
+      });
+    axios.get(`/user/${this.props.match.params.id}/meals/${today.getFullYear()}/${today.getMonth()}/${today.getDate()-1}`)
+      .then(res => {
+        (res.data.token);
+        this.setState({ user: res.data }, console.log('this is working for the new day route'));
       });
   }
 
