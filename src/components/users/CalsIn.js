@@ -24,10 +24,10 @@ export default function CalsIn({ user }) {
 //the back button takes away one day to todays date
 //the forward button adds one day
 
-//the contentes of this div is used as the argument for the requested day function ie:
+//the contents of this div is used as the argument for the requested day function ie:
 // year - month - day
 
-// //so on each pagem we use the printed date at the top to feed into the function that tells us whic meals been eaten
+// so on each pagem we use the printed date at the top to feed into the function that tells us which meals have been eaten
 // function CalsInCalsOut user
 //   return(
 //     //let an array of meals
@@ -36,6 +36,6 @@ export default function CalsIn({ user }) {
 //     codecodecode
 //
 //
-//   // in the constructor for userShow, on the state we can return todays date so that he page knows what the date is
-//   // on componentdidmount and tell it to return the meals on that date.
+//   in the constructor for userShow, on the state we can return todays date so that the page knows what the date is
+//   on componentdidmount and tell it to return the meals on that date.
 //

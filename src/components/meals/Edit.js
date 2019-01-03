@@ -34,19 +34,25 @@ export default class MealEdit extends React.Component {
   render() {
     return(
       <section>
-        <form onSubmit={this.handleSubmit}>
-          <label>Name</label>
-          <input onChange={this.handleChange}
-            value={this.state.name || ''}
-            name="name"
-          />
-          <label>Date</label>
-          <input onChange={this.handleChange}
-            value={this.state.date || ''}
-            name="date"
-          />
-          <button>Edit</button>
-        </form>
+        <div className="form-container">
+          <form onSubmit={this.handleSubmit} id="signup">
+            <div className="header">
+              <h3>Edit Meal Information</h3>
+            </div>
+
+            <div className="sep"></div>
+
+            <div className="inputs">
+              <div className='mulipleInput'>
+                <input className="input" type="date" name="date" placeholder="DD / MM / YYYY" onChange={this.handleChange} value={this.state.date || ''}/>
+              </div>
+
+              <input className="input" type="name" name="name" placeholder="Breakfast" onChange={this.handleChange} value={this.state.name || ''}/>
+
+              <button id="submit" className="button is-primary">Edit</button>
+            </div>
+          </form>
+        </div>
       </section>
     );
   }

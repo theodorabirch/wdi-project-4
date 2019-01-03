@@ -10,6 +10,7 @@ import CalsIn from './CalsIn';
 import CalsOut from './CalsOut';
 // import DailyProgress from './DailyProgress';
 
+const today = new Date();
 export default class UserShow extends React.Component {
   constructor(props) {
     super(props);
@@ -24,6 +25,11 @@ export default class UserShow extends React.Component {
       .then(res => {
         (res.data.token);
         this.setState({ user: res.data }, console.log('here'));
+      });
+    axios.get(`/user/${this.props.match.params.id}/meals/${today.getFullYear()}/${today.getMonth()}/${today.getDate()-1}`)
+      .then(res => {
+        (res.data.token);
+        this.setState({ user: res.data }, console.log('this is working for the new day route'));
       });
   }
 
@@ -67,7 +73,7 @@ export default class UserShow extends React.Component {
                       <div className='has-text-centered'>
                         <p className='has-text-centered'>
                           <button> <i className="fas fa-chevron-left"> </i></button>
-                          <strong>     13 / 12 / 2018     </strong>
+                          <strong>     {today.getDate()} / {today.getMonth()+1} / {today.getFullYear()}    </strong>
                           <button> <i className="fas fa-chevron-right"> </i></button>
                         </p>
                       </div>
@@ -79,7 +85,7 @@ export default class UserShow extends React.Component {
                     <div className="tile is-ancestor has-text-centered">
                       <div className="tile is-parent">
                         <article id="square" className="tile is-child box">
-                          <CalsIn user={user} />
+                          <CalsIn user={user}  />
                           <p>
                             <i className="fas fa-tachometer-alt meter"></i>
                           </p>
