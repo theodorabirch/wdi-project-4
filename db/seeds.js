@@ -6,6 +6,7 @@ const Meal = require('../models/meal');
 const User = require('../models/user');
 const Workout = require('../models/workout');
 
+const today = new Date;
 const userIds = [
   '5be9860fcb16d525543ceda1',
   '5be9860fcb16d525543ceda2',
@@ -202,7 +203,7 @@ const mealData = [
   {
     user: userIds[1],
     name: 'Breakfast',
-    date: '2018-12-13T00:00:00.009Z',
+    date: today.getDate(),
     servings: [{
       food: foodIds[1],
       quantity: 2
