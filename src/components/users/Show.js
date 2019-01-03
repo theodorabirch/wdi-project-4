@@ -8,6 +8,7 @@ import TodaysMeals from './TodaysMeals';
 import TodaysWorkouts from './TodaysWorkouts';
 import CalsIn from './CalsIn';
 import CalsOut from './CalsOut';
+import Macronutrients from './Macronutrients';
 // import DailyProgress from './DailyProgress';
 
 const today = new Date();
@@ -104,14 +105,12 @@ export default class UserShow extends React.Component {
                       </div>
 
                       <div className="tile is-parent">
-                        <article className="tile is-child box">
-                          <p className="title">Chart.js</p>
-                          <p className="subtitle">Daily Progress</p>
-                          <div className="todays-meals">
-                            <div className="card">
-                              <img src="https://imgur.com/XpUgXTi.png"/>
-                            </div>
-                          </div>
+                        <article id="square" className="tile is-child box">
+                          <Macronutrients user={user} />
+                          <p>
+                            <i className="fas fa-tachometer-alt meter"></i>
+                          </p>
+                          <p className="subtitle">Protein</p>
                         </article>
                       </div>
 

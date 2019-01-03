@@ -1,15 +1,15 @@
 import React from 'react';
 
-export default function CalsOut({ user }) {
+export default function Macronutrients({ user }) {
 
   return(
     <div>
       <div className="todays-stats">
-        {user.workouts.map(workout =>
-          <div key={workout._id}>
-            <p className="title"><i className="fas fa-fire cal-burn"></i>{Math.round(workout.totalCaloriesBurned + workout.baseCaloriesBurned)}<span className="stat-unit">kCals</span></p>
+        {user.meal.servings.totalProteins.reduce((total, proteins) =>
+          <div key={user._id}>
+            <p className="title"><i className="fas fa-fire cal-burn"></i>{total + proteins}<span className="stat-unit">g</span></p>
           </div>
-        )}
+        ), 0}
       </div>
     </div>
   );
