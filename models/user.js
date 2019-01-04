@@ -62,7 +62,7 @@ userSchema.virtual('caloriesConsumedPerMeal')
 userSchema.virtual('dailyCaloriesIn')
   .get(function() {
     //for the current user
-    //check whether their ID matches the userIds attached to any of the serving in our datanase
+    //check whether their ID matches the userIds attached to any of the serving in our database
     //collect these in an array on a const
     //filter this array into separate arrays depending on their date.
   });

@@ -1,7 +1,6 @@
 import React from 'react';
 
 export default function TodaysMeals({ user }) {
-  console.log('this is user.meals', user.meals.totalCalories);
   return(
     <div>
 

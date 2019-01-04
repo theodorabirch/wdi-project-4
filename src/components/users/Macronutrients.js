@@ -1,19 +1,29 @@
 import React from 'react';
 
 export default function Macronutrients({ user }) {
+  let dailyProteinIntake = 0;
+  user.meals.forEach(meal => dailyProteinIntake = meal.totalProteins + dailyProteinIntake);
+
+  let dailyFatIntake = 0;
+  user.meals.forEach(meal => dailyFatIntake = meal.totalFats + dailyFatIntake);
+
+  let dailyCarbIntake = 0;
+  user.meals.forEach(meal => dailyCarbIntake = meal.totalCarbs + dailyCarbIntake);
+
 
   return(
     <div>
       <div className="todays-stats">
-        {user.meal.servings.totalProteins.reduce((total, proteins) =>
-          <div key={user._id}>
-            <p className="title"><i className="fas fa-fire cal-burn"></i>{total + proteins}<span className="stat-unit">g</span></p>
-          </div>
-        ), 0}
+        <div>
+          <p className="title"><i className="fas fa-fire cal-burn"></i>{dailyProteinIntake.toFixed(1)}<span className="stat-unit">g</span></p>
+          <p className="title"><i className="fas fa-fire cal-burn"></i>{dailyFatIntake.toFixed(1)}<span className="stat-unit">g</span></p>
+          <p className="title"><i className="fas fa-fire cal-burn"></i>{dailyCarbIntake.toFixed(1)}<span className="stat-unit">g</span></p>
+        </div>
       </div>
     </div>
   );
 }
+
 
 
 

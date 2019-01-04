@@ -1,15 +1,14 @@
 import React from 'react';
 
 export default function CalsIn({ user }) {
-
+  let dailyCalorieIntake = 0;
+  user.meals.forEach(meal => dailyCalorieIntake = meal.totalCalories + dailyCalorieIntake);
   return(
     <div>
       <div className="todays-stats">
-        {user.meals.map(meal =>
-          <div key={meal._id}>
-            <p className="title"><i className="fas fa-fire cal-burn"></i>{meal.totalCalories}<span className="stat-unit">kCals</span></p>
-          </div>
-        )}
+        <div>
+          <p className="title"><i className="fas fa-fire cal-burn"></i>{dailyCalorieIntake}<span className="stat-unit">kCals</span></p>
+        </div>
       </div>
     </div>
 

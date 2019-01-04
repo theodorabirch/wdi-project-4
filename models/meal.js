@@ -23,31 +23,26 @@ mealSchema.pre('find', function() {
 
 //post to /user/:id/meals/2018/12/6
 
-//
 mealSchema.virtual('totalCalories')
   .get(function() {
-    console.log('this is totalCalories', this);
     return this.servings.reduce((total, serving) =>
       total + (serving.food.kCalsPer100g * serving.quantity), 0);
   });
 
 mealSchema.virtual('totalProteins')
   .get(function() {
-    console.log('this is totalProteins', this);
     return this.servings.reduce((total, serving) =>
       total + (serving.food.proteinPer100g * serving.quantity), 0);
   });
 
 mealSchema.virtual('totalCarbs')
   .get(function() {
-    console.log('this is totalCarbs', this);
     return this.servings.reduce((total, serving) =>
       total + (serving.food.carbsPer100g * serving.quantity), 0);
   });
 
 mealSchema.virtual('totalFats')
   .get(function() {
-    console.log('this is totalFats', this);
     return this.servings.reduce((total, serving) =>
       total + (serving.food.fatPer100g * serving.quantity), 0);
   });

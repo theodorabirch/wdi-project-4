@@ -44,7 +44,6 @@ export default class UserShow extends React.Component {
   }
 
   render() {
-    // const date = this.state.user;
     const user = this.state.user;
 
     return(
