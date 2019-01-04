@@ -15,9 +15,9 @@ export default function Macronutrients({ user }) {
     <div>
       <div className="todays-stats">
         <div>
-          <p className="title"><i className="fas fa-fire cal-burn"></i>{dailyProteinIntake.toFixed(1)}<span className="stat-unit">g</span></p>
-          <p className="title"><i className="fas fa-fire cal-burn"></i>{dailyFatIntake.toFixed(1)}<span className="stat-unit">g</span></p>
-          <p className="title"><i className="fas fa-fire cal-burn"></i>{dailyCarbIntake.toFixed(1)}<span className="stat-unit">g</span></p>
+          <p className="stat-key">Protein: <span className="stat-val">{dailyProteinIntake.toFixed(1)}</span><span className="stat-unit">g</span></p>
+          <p className="stat-key">Fat: <span className="stat-val">{dailyFatIntake.toFixed(1)}</span><span className="stat-unit">g</span></p>
+          <p className="stat-key">Carbs: <span className="stat-val">{dailyCarbIntake.toFixed(1)}</span><span className="stat-unit">g</span></p>
         </div>
       </div>
     </div>

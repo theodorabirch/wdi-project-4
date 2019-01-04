@@ -109,7 +109,7 @@ export default class UserShow extends React.Component {
                           <p>
                             <i className="fas fa-tachometer-alt meter"></i>
                           </p>
-                          <p className="subtitle">Protein</p>
+                          <p className="subtitle">Macronutrients</p>
                         </article>
                       </div>
 
