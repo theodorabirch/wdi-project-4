@@ -1,6 +1,8 @@
 import React from 'react';
+import Chart from 'chart.js';
 
 export default function Macronutrients({ user }) {
+
   let dailyProteinIntake = 0;
   user.meals.forEach(meal => dailyProteinIntake = meal.totalProteins + dailyProteinIntake);
 
@@ -10,11 +12,50 @@ export default function Macronutrients({ user }) {
   let dailyCarbIntake = 0;
   user.meals.forEach(meal => dailyCarbIntake = meal.totalCarbs + dailyCarbIntake);
 
+  const macroData = [];
+  macroData.push(dailyProteinIntake, dailyFatIntake, dailyCarbIntake);
+  const proteinData = [];
+  proteinData.push(dailyProteinIntake);
+  const fatData = [];
+  fatData.push(dailyFatIntake);
+  const carbData = [];
+  carbData.push(dailyCarbIntake);
+
+  const canvas = document.getElementbyId('macro-chart');
+  const ctx = canvas.getContext('2d');
+
+  const chartData = {
+    labels: [
+      'Protein',
+      'Carbohydrate',
+      'Fat'
+    ],
+    datasets: [
+      {
+        fill: true,
+        backgroundColor: [
+          'red',
+          'yellow',
+          'blue'
+        ],
+        data: macroData,
+        borderColor: ['white','white','white'],
+        borderWidth: [2,2,2]
+      }
+    ]
+  };
+
+  const macroPieChart = new Chart(ctx, {
+    type: 'pie',
+    data: chartData
+  });
+
 
   return(
     <div>
       <div className="todays-stats">
-        <div>
+        <div className="macro-chart">
+          {macroPieChart}
           <p className="stat-key">Protein: <span className="stat-val">{dailyProteinIntake.toFixed(1)}</span><span className="stat-unit">g</span></p>
           <p className="stat-key">Fat: <span className="stat-val">{dailyFatIntake.toFixed(1)}</span><span className="stat-unit">g</span></p>
           <p className="stat-key">Carbs: <span className="stat-val">{dailyCarbIntake.toFixed(1)}</span><span className="stat-unit">g</span></p>
